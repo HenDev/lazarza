@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class StaffTimerScript : MonoBehaviour
@@ -15,7 +15,7 @@ public class StaffTimerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GoogleAnalytics.instance.LogScreen("Town Screen");
+        // GoogleAnalytics.instance.LogScreen("Town Screen");
         shopcenter = GameObject.FindGameObjectWithTag("ShopObject").GetComponent<ShopCenterScript>();
         if (shopcenter.indexTraining != -1)
         {

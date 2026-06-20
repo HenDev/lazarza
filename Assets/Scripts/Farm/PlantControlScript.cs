@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Common;
+using Assets.Scripts.Common;
 using Assets.Scripts.Farm;
 using System;
 using UnityEngine;
@@ -42,7 +42,7 @@ public class PlantControlScript : MonoBehaviour
     void Start()
     {
         breedSelected = -1;
-        GoogleAnalytics.instance.LogScreen("Farm Screen");
+        // GoogleAnalytics.instance.LogScreen("Farm Screen");
         if (VariableSystem.language.Equals("Vietnamese")) isVN = true;
         else isVN = false;
         valuePrefabs = (GameObject)Resources.Load("Farm/AddValue");

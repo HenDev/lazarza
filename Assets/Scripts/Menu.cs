@@ -1,7 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
-[RequireComponent(typeof(AdMobPlugin))]
+// [RequireComponent(typeof(AdMobPlugin))]
 public class Menu : MonoBehaviour {
 
 	private const string AD_UNIT_ID = "YOUR_AD_UNIT_ID";
@@ -13,9 +13,10 @@ public class Menu : MonoBehaviour {
 	private Rect buttonPositionHideAds;
 	private Rect buttonPositionShowInterstitial;
 
-	private AdMobPlugin admob;
+	// private AdMobPlugin admob;
 
 	void Start() {
+		/*
 		admob = GetComponent<AdMobPlugin>();
 		admob.CreateBanner(adUnitId: AD_UNIT_ID,
 		                   adSize: AdMobPlugin.AdSize.SMART_BANNER,
@@ -23,6 +24,7 @@ public class Menu : MonoBehaviour {
 		                   interstitialId: INTERSTITIAL_ID,
 		                   isTestDevice: true);
 		admob.RequestAd();
+		*/
 
 		buttonPositionShowAds = new Rect(
 			(Screen.width - BUTTON_SIZE.x) / 2,
@@ -39,6 +41,7 @@ public class Menu : MonoBehaviour {
 	}
 
 	void OnEnable() {
+		/*
 		AdMobPlugin.AdClosed += () => { Debug.Log ("AdClosed"); };
 		AdMobPlugin.AdFailedToLoad += () => { Debug.Log ("AdFailedToLoad"); };
 		AdMobPlugin.AdLeftApplication += () => { Debug.Log ("AdLeftApplication"); };
@@ -51,41 +54,44 @@ public class Menu : MonoBehaviour {
 
 		AdMobPlugin.AdLoaded += HandleAdLoaded;
 		AdMobPlugin.InterstitialLoaded += HandleInterstitialLoaded;
+		*/
 	}
 
 	void OnDisable() {
+		/*
 		AdMobPlugin.AdLoaded -= HandleAdLoaded;
 		AdMobPlugin.InterstitialLoaded -= HandleInterstitialLoaded;
+		*/
 	}
 
 	void HandleAdLoaded() {
 #if !UNITY_EDITOR
-		admob.ShowBanner();
+		// admob.ShowBanner();
 #endif
 	}
 
 	void HandleInterstitialLoaded() {
 #if !UNITY_EDITOR
-		admob.ShowInterstitial();
+		// admob.ShowInterstitial();
 #endif
 	}
 
 	void OnGUI() {
 		if (GUI.Button(buttonPositionShowAds, "Show Ads")) {
 #if !UNITY_EDITOR
-			admob.ShowBanner();
+			// admob.ShowBanner();
 #endif
 		}
 
 		if (GUI.Button(buttonPositionHideAds, "Hide Ads")) {
 #if !UNITY_EDITOR
-			admob.HideBanner();
+			// admob.HideBanner();
 #endif
 		}
 
 		if (GUI.Button(buttonPositionShowInterstitial, "Show Interstitial")) {
 #if !UNITY_EDITOR
-			admob.RequestInterstitial();
+			// admob.RequestInterstitial();
 #endif
 		}
 	}

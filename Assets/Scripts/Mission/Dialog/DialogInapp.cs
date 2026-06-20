@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
-using OnePF;
+// using OnePF;
 using System.Collections.Generic;
 
 public class DialogInapp : DialogAbs
@@ -53,7 +53,7 @@ public class DialogInapp : DialogAbs
 
     public void ButtonBuy(Transform button)
     {
-        OpenIAB.purchaseProduct(button.parent.name);
+        // OpenIAB.purchaseProduct(button.parent.name);
     }
 
     public override void ShowDialog(DialogAbs.CallBackShowDialog callback = null)
@@ -101,10 +101,11 @@ public class DialogInapp : DialogAbs
     const string SKU = "sku";
     string _label = "";
     bool _isInitialized = false;
-    Inventory _inventory = null;
+    // Inventory _inventory = null;
 
     private void OnEnable()
     {
+        /*
         // Listen to all events for illustration purposes
         OpenIABEventManager.billingSupportedEvent += billingSupportedEvent;
         OpenIABEventManager.billingNotSupportedEvent += billingNotSupportedEvent;
@@ -114,9 +115,11 @@ public class DialogInapp : DialogAbs
         OpenIABEventManager.purchaseFailedEvent += purchaseFailedEvent;
         OpenIABEventManager.consumePurchaseSucceededEvent += consumePurchaseSucceededEvent;
         OpenIABEventManager.consumePurchaseFailedEvent += consumePurchaseFailedEvent;
+        */
     }
     private void OnDisable()
     {
+        /*
         // Remove all event handlers
         OpenIABEventManager.billingSupportedEvent -= billingSupportedEvent;
         OpenIABEventManager.billingNotSupportedEvent -= billingNotSupportedEvent;
@@ -126,9 +129,11 @@ public class DialogInapp : DialogAbs
         OpenIABEventManager.purchaseFailedEvent -= purchaseFailedEvent;
         OpenIABEventManager.consumePurchaseSucceededEvent -= consumePurchaseSucceededEvent;
         OpenIABEventManager.consumePurchaseFailedEvent -= consumePurchaseFailedEvent;
+        */
     }
     private void Start()
     {
+        /*
         // Map skus for different stores       
         OpenIAB.mapSku("package1", OpenIAB_Android.STORE_GOOGLE, "package1");
         OpenIAB.mapSku("package2", OpenIAB_Android.STORE_GOOGLE, "package2");
@@ -158,6 +163,7 @@ public class DialogInapp : DialogAbs
             // Transmit options and start the service
             OpenIAB.init(options);
         }
+        */
     }
     private void billingSupportedEvent()
     {
@@ -168,6 +174,7 @@ public class DialogInapp : DialogAbs
     {
         Debug.Log("billingNotSupportedEvent: " + error);
     }
+    /*
     private void queryInventorySucceededEvent(Inventory inventory)
     {
         Debug.Log("queryInventorySucceededEvent: " + inventory);
@@ -180,11 +187,13 @@ public class DialogInapp : DialogAbs
             foreach (Purchase p in prods) OpenIAB.consumeProduct(p);
         }
     }
-    private void queryInventoryFailedEvent(string error)
+    */
+private void queryInventoryFailedEvent(string error)
     {
         Debug.Log("queryInventoryFailedEvent: " + error);
         _label = error;
     }
+    /*
     private void purchaseSucceededEvent(Purchase purchase)
     {
         Debug.Log("purchaseSucceededEvent: " + purchase);
@@ -222,17 +231,20 @@ public class DialogInapp : DialogAbs
         MobilePlugin.getInstance().ShowToast("Purchase success! You have got " + diamond);
 #endif
     }
-    private void purchaseFailedEvent(int errorCode, string errorMessage)
+    */
+private void purchaseFailedEvent(int errorCode, string errorMessage)
     {
         Debug.Log("purchaseFailedEvent: " + errorMessage);
         _label = "Purchase Failed: " + errorMessage;
     }
+    /*
     private void consumePurchaseSucceededEvent(Purchase purchase)
     {
         Debug.Log("consumePurchaseSucceededEvent: " + purchase);
         _label = "CONSUMED: " + purchase.ToString();
     }
-    private void consumePurchaseFailedEvent(string error)
+    */
+private void consumePurchaseFailedEvent(string error)
     {
         Debug.Log("consumePurchaseFailedEvent: " + error);
         _label = "Consume Failed: " + error;

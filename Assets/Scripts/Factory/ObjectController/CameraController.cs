@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class CameraController : MonoBehaviour
@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     {
         commonObject = GameObject.Find("CommonObject");
         btn_ResultCommon = commonObject.transform.Find("Btn_Result");
-        GoogleAnalytics.instance.LogScreen("Factory Screen");
+        // GoogleAnalytics.instance.LogScreen("Factory Screen");
         if (VariableSystem.mission == 1)
         {
             this.gameObject.transform.position = new Vector3(0, -0.33f, -10);

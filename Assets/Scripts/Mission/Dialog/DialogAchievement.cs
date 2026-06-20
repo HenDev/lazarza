@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Xml;
 using System.IO;
@@ -153,7 +153,7 @@ public class DialogAchievement : DialogAbs
         if (arrGroupAchievement[groupLevel - 1].Length >= currentLevel && DataCache.dataAchievementCache[groupLevel - 1].Value >= arrGroupAchievement[groupLevel - 1][currentLevel - 1].Target && DataCache.dataAchievementCache[groupLevel - 1].Notify == 0)
         {
             Debug.Log("-------------------CO NHIEM VU HOAN THANH 1---------------------");
-            GoogleAnalytics.instance.LogScreen("Complete Achievement: " + arrGroupAchievement[groupLevel - 1][currentLevel - 1].Title);
+            // GoogleAnalytics.instance.LogScreen("Complete Achievement: " + arrGroupAchievement[groupLevel - 1][currentLevel - 1].Title);
             AchievementInGameControl.achiFinish.finish = true;
             AchievementInGameControl.achiFinish.title = arrGroupAchievement[groupLevel - 1][currentLevel - 1].Title;
             AchievementInGameControl.achiFinish.detail = arrGroupAchievement[groupLevel - 1][currentLevel - 1].Detail;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,7 +18,7 @@ public class CustomerScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GoogleAnalytics.instance.LogScreen("Shop Screen");
+        // GoogleAnalytics.instance.LogScreen("Shop Screen");
         shopcenter = GameObject.FindGameObjectWithTag("ShopObject").GetComponent<ShopCenterScript>();
         shopcenter.common.WarningInvisible(CommonObjectScript.Button.Shop);
         HarvestPlantPrefabs = (GameObject)Resources.Load("Farm/HarvestPlant");

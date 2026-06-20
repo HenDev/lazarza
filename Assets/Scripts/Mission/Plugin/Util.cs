@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class Util : ScriptableObject
 
     public static Dictionary<string, string> RandomFriend(List<object> friends)
     {
-        var fd = ((Dictionary<string, object>)(friends[Random.Range(0, friends.Count)]));
+        var fd = ((Dictionary<string, object>)(friends[UnityEngine.Random.Range(0, friends.Count)]));
         var friend = new Dictionary<string, string>();
         friend["id"] = (string)fd["id"];
         friend["first_name"] = (string)fd["first_name"];
@@ -104,20 +105,23 @@ public class Util : ScriptableObject
 
     private static void JavascriptLog(string msg)
     {
-        Application.ExternalCall("console.log", msg);
+        // Application.ExternalCall is obsolete and was removed in newer Unity versions.
+        // Application.ExternalCall("console.log", msg);
     }
 
     public static void Log (string message)
     {
         Debug.Log(message);
-        if (Application.isWebPlayer)
-            JavascriptLog(message);
+        // WebPlayer is obsolete.
+        // if (Application.isWebPlayer)
+        //     JavascriptLog(message);
     }
     public static void LogError (string message)
     {
         Debug.LogError(message);
-        if (Application.isWebPlayer)
-            JavascriptLog(message);
+        // WebPlayer is obsolete.
+        // if (Application.isWebPlayer)
+        //     JavascriptLog(message);
     }
     
 }

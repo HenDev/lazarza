@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Facebook.MiniJSON;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ public class MenuControll : MonoBehaviour
     {
         time = 0;
         //Read xml achievement in data
-        GoogleAnalytics.instance.LogScreen("Menu Screen");
+        // GoogleAnalytics.instance.LogScreen("Menu Screen");
         exitScene = false;
         //Xu ly su kien con heo 
         //Debug.Log(GameObject.Find("BackgroundMenu").transform.FindChild("back1"));

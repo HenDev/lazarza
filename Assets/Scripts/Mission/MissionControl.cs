@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.IO;
 using Facebook.MiniJSON;
@@ -48,9 +48,9 @@ public class MissionControl : MonoBehaviour
     void Start()
     {
         //VariableSystem.heart = 1;
-        GoogleAnalytics.instance.LogScreen("Mission");
+        // GoogleAnalytics.instance.LogScreen("Mission");
         if (String.IsNullOrEmpty(VariableSystem.language))
-        {
+{
             VariableSystem.language = "English";
         }
         //VariableSystem.diamond = 100;
@@ -653,7 +653,7 @@ public class MissionControl : MonoBehaviour
 
     public void ButtonFreeGem()
     {
-        GameObject.Find("Vungle").GetComponent<VungleControl>().ShowVideoAd();
+        // GameObject.Find("Vungle").GetComponent<VungleControl>().ShowVideoAd();
     }
 
     public static void ShowTryAgain()

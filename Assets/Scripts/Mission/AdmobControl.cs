@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class AdmobControl : MonoBehaviour
@@ -6,12 +6,13 @@ public class AdmobControl : MonoBehaviour
 
     private const string AD_UNIT_ID = "ca-app-pub-4128501448856864/2872480833";
     private const string INTERSTITIAL_ID = "ca-app-pub-4128501448856864/5825947238";
-    private AdMobPlugin admob;
+    // private AdMobPlugin admob;
 
     public bool ShowFullOnStart = false;
 
     void Start()
     {
+        /*
         admob = GetComponent<AdMobPlugin>();
         admob.CreateBanner(adUnitId: AD_UNIT_ID,
                            adSize: AdMobPlugin.AdSize.BANNER,
@@ -26,10 +27,12 @@ public class AdmobControl : MonoBehaviour
                 admob.RequestInterstitial();
             }
         }
+        */
     }
 
     void OnEnable()
     {
+        /*
         AdMobPlugin.AdClosed += () => { Debug.Log("AdClosed"); };
         AdMobPlugin.AdFailedToLoad += () => { Debug.Log("AdFailedToLoad"); };
         AdMobPlugin.AdLeftApplication += () => { Debug.Log("AdLeftApplication"); };
@@ -42,39 +45,42 @@ public class AdmobControl : MonoBehaviour
 
         AdMobPlugin.AdLoaded += HandleAdLoaded;
         AdMobPlugin.InterstitialLoaded += HandleInterstitialLoaded;
+        */
     }
 
     void OnDisable()
     {
+        /*
         AdMobPlugin.AdLoaded -= HandleAdLoaded;
         AdMobPlugin.InterstitialLoaded -= HandleInterstitialLoaded;
+        */
     }
 
     void HandleAdLoaded()
     {
 #if !UNITY_EDITOR
-		admob.ShowBanner();
+		// admob.ShowBanner();
 #endif
     }
 
     void HandleInterstitialLoaded()
     {
 #if !UNITY_EDITOR
-		admob.ShowInterstitial();
+		// admob.ShowInterstitial();
 #endif
     }
 
     public void ShowBanner()
     {
 #if !UNITY_EDITOR
-        admob.RequestAd();
+        // admob.RequestAd();
 #endif
     }
 
     public void HideBanner()
     {
 #if !UNITY_EDITOR
-        admob.HideBanner();
+        // admob.HideBanner();
 #endif
     }
 }

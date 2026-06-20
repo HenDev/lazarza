@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class DialogShop : DialogAbs
@@ -89,7 +89,7 @@ public class DialogShop : DialogAbs
         if (VariableSystem.diamond >= price && price != 0)
         {
             VariableSystem.AddDiamond(-price);
-            GoogleAnalytics.instance.LogScreen("Buy ShopItem: " + vi_detail[IdItem - 1]);
+            // GoogleAnalytics.instance.LogScreen("Buy ShopItem: " + vi_detail[IdItem - 1]);
             gridView.Find("" + IdItem).GetComponent<ItemShop>().Price = price;
             gridView.Find("" + IdItem).GetComponent<ItemShop>().SetBuy();
 

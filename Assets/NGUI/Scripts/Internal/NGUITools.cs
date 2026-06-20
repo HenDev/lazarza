@@ -54,8 +54,7 @@ static public class NGUITools
 	{
 		get
 		{
-			return Application.platform != RuntimePlatform.WindowsWebPlayer &&
-				Application.platform != RuntimePlatform.OSXWebPlayer;
+			return !Application.isEditor;
 		}
 	}
 
@@ -1296,9 +1295,7 @@ static public class NGUITools
 
 	static public bool Save (string fileName, byte[] bytes)
 	{
-#if UNITY_WEBPLAYER || UNITY_FLASH || UNITY_METRO || UNITY_WP8
-		return false;
-#else
+
 		if (!NGUITools.fileAccess) return false;
 
 		string path = Application.persistentDataPath + "/" + fileName;
@@ -1324,7 +1321,7 @@ static public class NGUITools
 		file.Write(bytes, 0, bytes.Length);
 		file.Close();
 		return true;
-#endif
+
 	}
 
 	/// <summary>
@@ -1333,9 +1330,6 @@ static public class NGUITools
 
 	static public byte[] Load (string fileName)
 	{
-#if UNITY_WEBPLAYER || UNITY_FLASH || UNITY_METRO || UNITY_WP8
-		return null;
-#else
 		if (!NGUITools.fileAccess) return null;
 
 		string path = Application.persistentDataPath + "/" + fileName;
@@ -1345,7 +1339,6 @@ static public class NGUITools
 			return File.ReadAllBytes(path);
 		}
 		return null;
-#endif
 	}
 
 	/// <summary>
@@ -1384,12 +1377,12 @@ static public class NGUITools
 		{
 			TextEditor te = new TextEditor();
 			te.Paste();
-			return te.content.text;
+			return te.text;
 		}
 		set
 		{
 			TextEditor te = new TextEditor();
-			te.content = new GUIContent(value);
+			te.text = value;
 			te.OnFocus();
 			te.Copy();
 		}
@@ -1606,14 +1599,10 @@ static public class NGUITools
 		T[] comps = go.GetComponents<T>();
 
 		foreach (T comp in comps)
-		{
-#if !UNITY_EDITOR && (UNITY_WEBPLAYER || UNITY_FLASH || UNITY_METRO || UNITY_WP8)
-			comp.SendMessage(funcName, SendMessageOptions.DontRequireReceiver);
-#else
+		{ 
 			MethodInfo method = comp.GetType().GetMethod(funcName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
 			if (method != null) method.Invoke(comp, null);
-#endif
-		}
+ 		}
 	}
 
 	/// <summary>

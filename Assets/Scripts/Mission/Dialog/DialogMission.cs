@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Facebook.MiniJSON;
 using System.Collections.Generic;
@@ -105,7 +105,7 @@ public class DialogMission : DialogAbs
                     LoadingScene.ShowLoadingScene("Store", true);
                 //Destroy music
                 AudioControl.StopMusic("Nhac menu");
-                GoogleAnalytics.instance.LogScreen("Play level " + level);
+                // GoogleAnalytics.instance.LogScreen("Play level " + level);
             }
             transform.Find("BgBlack").gameObject.SetActive(false);
         });

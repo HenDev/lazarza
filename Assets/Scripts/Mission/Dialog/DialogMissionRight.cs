@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class DialogMissionRight : DialogAbs
@@ -90,7 +90,7 @@ public class DialogMissionRight : DialogAbs
         if (VariableSystem.diamond >= price && price != 0)
         {
             VariableSystem.AddDiamond(-price);
-            GoogleAnalytics.instance.LogScreen("Buy PowerUpItem: " + IdItem);
+            // GoogleAnalytics.instance.LogScreen("Buy PowerUpItem: " + IdItem);
             transform.Find("Table").Find("Item" + IdItem).GetComponent<ItemPowerUp>().Price = price;
             transform.Find("Table").Find("Item" + IdItem).GetComponent<ItemPowerUp>().SetBuy();
             IdItem = 0;

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class VungleControl : MonoBehaviour
@@ -9,20 +9,24 @@ public class VungleControl : MonoBehaviour
     void OnEnable()
     {
         // Listen to all events for illustration purposes
+        /*
         VungleAndroidManager.onAdStartEvent += onAdStartEvent;
         VungleAndroidManager.onAdEndEvent += onAdEndEvent;
         VungleAndroidManager.onCachedAdAvailableEvent += onCachedAdAvailableEvent;
         VungleAndroidManager.onVideoViewEvent += onVideoViewEvent;
+        */
     }
 
 
     void OnDisable()
     {
         // Remove all event handlers
+        /*
         VungleAndroidManager.onAdStartEvent -= onAdStartEvent;
         VungleAndroidManager.onAdEndEvent -= onAdEndEvent;
         VungleAndroidManager.onCachedAdAvailableEvent -= onCachedAdAvailableEvent;
         VungleAndroidManager.onVideoViewEvent -= onVideoViewEvent;
+        */
     }
 
     void onAdStartEvent()
@@ -57,7 +61,7 @@ public class VungleControl : MonoBehaviour
     {
         Debug.Log("sHOW VIDEO");
 #if UNITY_ANDROID
-        VungleAndroid.playAd();
+        // VungleAndroid.playAd();
         //MobilePlugin.getInstance().ShowToast("SHOW VIDEO VungleAndroid.isVideoAvailable() " + VungleAndroid.isVideoAvailable());
 #endif
     }
